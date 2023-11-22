@@ -16,6 +16,12 @@
     <div x-data="{ open: false }">
       <button @click="open = ! open">Bouton 1</button>
 
+      <div x-show="open">
+        <span x-show="open" x-transition.duration.500ms>
+        
+        </span>
+      
+      </div>    
     </div>
 
   </section>
