@@ -12,9 +12,12 @@
 <body>
   <h1>Accordéon mémorisant par un nombre l'élèment ouvert</h1>
 
-  <div x-data="{ open: 1 }">
+  <div x-data="{ open: 2 }">
     <section>
       <button @click="open = 1">1</button>
+      <p x-show="open === 1" x-transition.scale.0.duration.1000ms>Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Dolores ipsa cum animi nihil reprehenderit! Vitae possimus ratione, sequi deserunt nemo quaerat enim nobis
+        autem exercitationem commodi sed animi illo eligendi.</p>
 
     </section>
 
