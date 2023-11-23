@@ -15,6 +15,9 @@
   <div class="accordeon" x-data="{open : null}">
     <section>
       <button @click="open = 1">bouton 1</button>
+      <p x-show="open === 1" x-collapse.duration.2000ms> Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+        Soluta delectus magni quisquam? Ullam blanditiis suscipit dolorum! Laudantium officia eaque, ut consectetur quae
+        molestiae debitis placeat et praesentium quod id doloremque!</p>
 </body>
 
 </html>
