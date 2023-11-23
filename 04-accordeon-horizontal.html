@@ -58,15 +58,22 @@
     padding-left: 10px;
     /* pour que les éléments soient alignés verticalement */
     vertical-align: top;
-     /* espace entre les éléments */
-        margin: 0;
-    }
-     /* Sur tous les enfants de figcation */
-      #accordeon li figure figcaption > * {
-          /* pour éviter les marges par défaut */
-          margin:0px;
-          /* pour éviter les "padding" par défaut */
-          padding: 0;
-      }
+    /* espace entre les éléments */
+    margin: 0;
+  }
 
-    <body><h1>Accordéon horizontal</h1></body></html>
+  /* Sur tous les enfants de figcation */
+  #accordeon li figure figcaption>* {
+    /* pour éviter les marges par défaut */
+    margin: 0px;
+    /* pour éviter les "padding" par défaut */
+    padding: 0;
+  }
+</style>
+
+<body>
+  <h1>Accordéon horizontal</h1>
+  <ul id="accordeon" x-data="{IsOpen: 2}"></ul>
+</body>
+
+</html>
