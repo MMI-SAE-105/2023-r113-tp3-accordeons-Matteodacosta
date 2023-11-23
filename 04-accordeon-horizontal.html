@@ -73,12 +73,36 @@
 
 <body>
   <h1>Accordéon horizontal</h1>
-  <ul id="accordeon" x-data="{IsOpen: 2}"></ul>
-  <li @click="IsOpen = 1" :class="{actif:IsOpen === 1}"></li>
-  <figure>
-    <img src="https://picsum.photos/100?random=1" alt="" width="102">
-    <figcaption>
-      <h3>Lorem, ipsum dolor.</h3>
+  <ul id="accordeon">
+    <li>
+      <figure>
+        <img src="https://picsum.photos/100?random=1" alt="" width="102">
+        <figcaption>
+          <h3>Lorem, ipsum dolor.</h3>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure>
+        <img src="https://picsum.photos/100?random=2" alt="" width="102">
+        <figcaption>
+          <h3>Eius, officiis labore!</h3>
+          <p>Culpa laborum assumenda explicabo commodi alias?</p>
+        </figcaption>
+      </figure>
+    </li>
+    <li>
+      <figure>
+        <img src="https://picsum.photos/100?random=3" alt="" width="102">
+        <figcaption>
+          <h3>Distinctio, voluptatum pariatur?</h3>
+          <p>Illum, est obcaecati! Placeat, error numquam?</p>
+        </figcaption>
+      </figure>
+    </li>
+  </ul>
+
 </body>
 
 </html>
