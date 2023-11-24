@@ -57,25 +57,26 @@
       <li role="tab" :class="{actif:ouvert === 2}" @click="ouvert = 2">Onglet 2</li>
       <li role="tab" :class="{actif:ouvert === 3}" @click="ouvert = 3">Onglet 3</li>
     </ul>
-    <div>
-      <div role="tabpanel" x-show="ouvert === 1"></div>
+    <div role="tabpanel" x-show="ouvert === 1">
       <h1>Panneau 1</h1>
       <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel quo qui aliquid quidem aliquam deserunt nihil
         recusandae quisquam, in, nulla, cumque necessitatibus voluptate doloremque velit earum tempora natus laboriosam
         quaerat.</p>
     </div>
-    <div role="tabpanel" x-show="ouvert === 2"></div>
-    <h1>Panneau 2</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae inventore eius culpa blanditiis porro dicta
-      suscipit, totam exercitationem facere qui! Nihil beatae explicabo natus, nulla nesciunt aliquam! Incidunt, qui
-      deserunt!</p>
-  </div>
-  <div role="tabpanel" x-show="ouvert === 3">
-    <h1>Panneau 3</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat reprehenderit cumque incidunt consectetur et ut
-      quisquam odit, quod repellendus consequuntur consequatur? Accusantium deleniti nulla minima. Voluptatum reiciendis
-      officia similique nihil?</p>
-  </div>
+    <div role="tabpanel" x-show="ouvert === 2">
+      <h1>Panneau 2</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae inventore eius culpa blanditiis porro dicta
+        suscipit, totam exercitationem facere qui! Nihil beatae explicabo natus, nulla nesciunt aliquam! Incidunt, qui
+        deserunt!</p>
+    </div>
+    <div role="tabpanel" x-show="ouvert === 3">
+      <h1>Panneau 3</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat reprehenderit cumque incidunt consectetur et
+        ut
+        quisquam odit, quod repellendus consequuntur consequatur? Accusantium deleniti nulla minima. Voluptatum
+        reiciendis
+        officia similique nihil?</p>
+    </div>
 </body>
 
 </html>
