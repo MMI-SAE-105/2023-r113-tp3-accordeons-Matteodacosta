@@ -8,69 +8,98 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <title>Accordéon avec des booléens</title>
 </head>
+<style>
+  body {
+    background-color: brown;
+  }
+
+  a {
+    color: yellow;    
+  }
+</style>
 
 <body>
-  <h1>Accordéon avec des booléens</h1>
-  <accordeon>
-    <section>
+  <center>
+    <h1>Accordéon avec des booléens</h1>
+  </center>
+  <center>
+    <accordeon>
+      <section>
 
-      <div x-data="{ open: false }">
-        <button @click="open = ! open">Bouton 1</button>
+        <div x-data="{ open: false }">
+          <button @click="open = ! open">Bouton 1</button>
 
-        <div x-show="open">
-          <span x-show="open" x-transition.duration.500ms>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint eos similique iste modi impedit,
-              repellendus fuga est harum facere omnis magni nemo minus, accusamus recusandae aut facilis sapiente.
-              Inventore!</p>
+          <div x-show="open">
+            <span x-show="open" x-transition.duration.500ms>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sint eos similique iste modi impedit,
+                repellendus fuga est harum facere omnis magni nemo minus, accusamus recusandae aut facilis sapiente.
+                Inventore!</p>
 
-          </span>
+            </span>
 
-        </div>
-      </div>
-
-    </section>
-    <section>
-      <div x-data="{ open: false }">
-        <button @click="open = ! open">Bouton 2</button>
-
-        <div x-show="open">
-          <span x-show="open" x-transition.duration.500ms>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem aliquam perferendis corrupti possimus vero
-              illum sapiente aperiam? Voluptatum possimus sit culpa aliquid consequuntur facilis maiores magnam fugiat,
-              rem veritatis id!</p>
-
-          </span>
-
-
+          </div>
         </div>
 
+      </section>
+      <section>
+        <div x-data="{ open: false }">
+          <button @click="open = ! open">Bouton 2</button>
+
+          <div x-show="open">
+            <span x-show="open" x-transition.duration.500ms>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem aliquam perferendis corrupti possimus
+                vero
+                illum sapiente aperiam? Voluptatum possimus sit culpa aliquid consequuntur facilis maiores magnam
+                fugiat,
+                rem veritatis id!</p>
+
+            </span>
 
 
-      </div>
-    </section>
-    <section>
+          </div>
 
-      <div x-data="{ open: false }">
-        <button @click="open = ! open">Bouton 3</button>
-
-        <div x-show="open">
-          <span x-show="open" x-transition.duration.500ms>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet alias explicabo iure
-              necessitatibus, officia sit commodi ex ab corrupti inventore libero debitis blanditiis excepturi cum
-              consectetur culpa eligendi deserunt!</p>
-
-          </span>
 
 
         </div>
+      </section>
+      <section>
+
+        <div x-data="{ open: false }">
+          <button @click="open = ! open">Bouton 3</button>
+
+          <div x-show="open">
+            <span x-show="open" x-transition.duration.500ms>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam eveniet alias explicabo iure
+                necessitatibus, officia sit commodi ex ab corrupti inventore libero debitis blanditiis excepturi cum
+                consectetur culpa eligendi deserunt!</p>
+
+            </span>
+
+
+          </div>
 
 
 
-      </div>
+        </div>
 
 
-    </section>
-  </accordeon>
+      </section>
+    </accordeon>
+    <h1>Accède aussi aux autres accordéons et Onglets !!</h1>
+    <td>
+      <li>
+        <a href="02-accordeon-nombre.html">Accordéon mémorisant par un nombre l'élèment ouvert</a>
+      </li>
+      &emsp;
+      <li>
+        <a href="03-accordeon-collapse.html">Accordéon avec <code>x-collapse</code></a>
+      </li>
+      &emsp;
+      <li><a href="04-accordeon-horizontal.html">Accordéon horizontal</a></li>
+      &emsp;
+      <li><a href="05-onglets.html">Onglets</a></li>
+    </td>
+  </center>
 </body>
 
 </html>

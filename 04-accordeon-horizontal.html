@@ -69,10 +69,16 @@
     /* pour éviter les "padding" par défaut */
     padding: 0;
   }
+
+  body {
+    background-color: yellow;
+  }
 </style>
 
 <body>
-  <h1>Accordéon horizontal</h1>
+  <center>
+    <h1>Accordéon horizontal</h1>
+  </center>
   <ul id="accordeon" x-data="{IsOpen: 2}">
     <li @click="IsOpen = 1" :class="{actif:IsOpen === 1}">
       <figure>
@@ -103,7 +109,22 @@
       </figure>
     </li>
   </ul>
-
+  <h1>Accède aussi aux autres accordéons et Onglets !!</h1>
+  <td>
+    <li>
+      <a href="01-accordeon-booleen.html">Accordéon avec des booléens</a>
+    </li>
+    &emsp;
+    <li>
+      <a href="02-accordeon-nombre.html">Accordéon mémorisant par un nombre l'élèment ouvert</a>
+    </li>
+    &emsp;
+    <li>
+      <a href="03-accordeon-collapse.html">Accordéon avec <code>x-collapse</code></a>
+    </li>
+    &emsp;
+    <li><a href="05-onglets.html">Onglets</a></li>
+  </td>
 </body>
 
 </html>

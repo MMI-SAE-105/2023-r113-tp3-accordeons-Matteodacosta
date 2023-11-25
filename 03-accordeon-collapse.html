@@ -9,29 +9,58 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <title>Accordéon avec x-collapse</title>
 </head>
+<style>
+  body {
+    background-color: aquamarine;
+  }
+</style>
 
 <body>
-  <h1>Accordéon avec <code>x-collapse</code></h1>
-  <div class="accordeon" x-data="{open : null}">
-    <section>
-      <button @click="open = 1">bouton 1</button>
-      <p x-show="open === 1" x-collapse.duration.2000ms> Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-        Soluta delectus magni quisquam? Ullam blanditiis suscipit dolorum! Laudantium officia eaque, ut consectetur quae
-        molestiae debitis placeat et praesentium quod id doloremque!</p>
-    </section>
-    <section>
-      <button @click="open = 2">bouton 2</button>
-      <p x-show="open === 2" x-collapse.duration.2000ms>Lorem ipsum dolor sit, amet consectetur adipisicing
-        elit. Eos quasi veniam pariatur deleniti exercitationem dolorum repudiandae maiores quidem corrupti architecto.
-        Nihil repudiandae aperiam libero error, non corporis esse ex facere </p>
-    </section>
-    <section>
-      <button @click="open = 3">bouton 3</button>
-      <p x-show="open === 3" x-collapse.duration.2000ms>Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Vel saepe recusandae sed excepturi eius cum laborum eveniet cupiditate officiis assumenda, quibusdam
-        cumque accusamus exercitationem repellendus quaerat reiciendis facere voluptate dicta. </p>
-    </section>
-  </div>
+  <center>
+    <h1>Accordéon avec <code>x-collapse</code></h1>
+  </center>
+  <center>
+    <div class="accordeon" x-data="{open : null}">
+      <section>
+        <button @click="open = 1">bouton 1</button>
+        <p x-show="open === 1" x-collapse.duration.2000ms> Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          Soluta delectus magni quisquam? Ullam blanditiis suscipit dolorum! Laudantium officia eaque, ut consectetur
+          quae
+          molestiae debitis placeat et praesentium quod id doloremque!</p>
+      </section>
+      <section>
+        <button @click="open = 2">bouton 2</button>
+        <p x-show="open === 2" x-collapse.duration.2000ms>Lorem ipsum dolor sit, amet consectetur adipisicing
+          elit. Eos quasi veniam pariatur deleniti exercitationem dolorum repudiandae maiores quidem corrupti
+          architecto.
+          Nihil repudiandae aperiam libero error, non corporis esse ex facere </p>
+      </section>
+      <section>
+        <button @click="open = 3">bouton 3</button>
+        <p x-show="open === 3" x-collapse.duration.2000ms>Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Vel saepe recusandae sed excepturi eius cum laborum eveniet cupiditate officiis assumenda, quibusdam
+          cumque accusamus exercitationem repellendus quaerat reiciendis facere voluptate dicta. </p>
+      </section>
+    </div>
+  </center>
+  <center>
+    <h1>Accède aussi aux autres accordéons et Onglets !!</h1>
+    <td>
+      <li>
+        <a href="01-accordeon-booleen.html">Accordéon avec des booléens</a>
+      </li>
+      &emsp;
+      <li>
+        <a href="02-accordeon-nombre.html">Accordéon mémorisant par un nombre l'élèment ouvert</a>
+      </li>
+      &emsp;
+
+      <li><a href="04-accordeon-horizontal.html">Accordéon horizontal</a></li>
+
+      &emsp;
+      <li><a href="05-onglets.html">Onglets</a></li>
+    </td>
+  </center>
 </body>
 
 </html>

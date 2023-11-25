@@ -8,35 +8,57 @@
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <title>Accordéon mémorisant par un nombre l'élèment ouvert</title>
 </head>
+<style>
+  body {
+    background-color: green;
+  }
+</style>
 
 <body>
-  <h1>Accordéon mémorisant par un nombre l'élèment ouvert</h1>
+  <center>
+    <h1>Accordéon mémorisant par un nombre l'élèment ouvert</h1>
+  </center>
+  <center>
+    <div x-data="{ open: 1 }">
+      <section>
+        <button @click="open = 1">bouton 1</button>
+        <p x-show="open === 1" x-transition.duration.5000ms.scale.0.origin.left>Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Vero debitis cupiditate recusandae! Nostrum voluptatum consectetur iusto labore incidunt
+          tempora neque nobis temporibus, numquam quas assumenda repellendus rem, non dolor harum.</p>
 
-  <div x-data="{ open: 1 }">
-    <section>
-      <button @click="open = 1">bouton 1</button>
-      <p x-show="open === 1" x-transition.duration.5000ms.scale.0.origin.left>Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Vero debitis cupiditate recusandae! Nostrum voluptatum consectetur iusto labore incidunt
-        tempora neque nobis temporibus, numquam quas assumenda repellendus rem, non dolor harum.</p>
-
-    </section>
-    <section>
-      <button @click="open = 2">bouton 2</button>
-      <p x-show="open === 2" x-transition.duration.5000ms.scale.0.origin.left>Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Vero debitis cupiditate recusandae! Nostrum voluptatum consectetur iusto labore incidunt
-        tempora
-        neque nobis temporibus, numquam quas assumenda repellendus rem, non dolor harum.</p>
-    </section>
-    <section>
-      <button @click="open = 3">bouton 3</button>
-      <p x-show="open === 3" x-transition.duration.5000ms.scale.0.origin.left>Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Vero debitis cupiditate recusandae! Nostrum voluptatum consectetur iusto labore incidunt
-        tempora
-        neque nobis temporibus, numquam quas assumenda repellendus rem, non dolor harum.</p>
-    </section>
-  </div>
-
-
+      </section>
+      <section>
+        <button @click="open = 2">bouton 2</button>
+        <p x-show="open === 2" x-transition.duration.5000ms.scale.0.origin.left>Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Vero debitis cupiditate recusandae! Nostrum voluptatum consectetur iusto labore incidunt
+          tempora
+          neque nobis temporibus, numquam quas assumenda repellendus rem, non dolor harum.</p>
+      </section>
+      <section>
+        <button @click="open = 3">bouton 3</button>
+        <p x-show="open === 3" x-transition.duration.5000ms.scale.0.origin.left>Lorem ipsum dolor sit amet consectetur
+          adipisicing elit. Vero debitis cupiditate recusandae! Nostrum voluptatum consectetur iusto labore incidunt
+          tempora
+          neque nobis temporibus, numquam quas assumenda repellendus rem, non dolor harum.</p>
+      </section>
+    </div>
+  </center>
+  <center>
+    <h1>Accède aussi aux autres accordéons et Onglets !!</h1>
+    <td>
+      <li>
+        <a href="01-accordeon-booleen.html">Accordéon avec des booléens</a>
+      </li>
+      &emsp;
+      <li>
+        <a href="03-accordeon-collapse.html">Accordéon avec <code>x-collapse</code></a>
+      </li>
+      &emsp;
+      <li><a href="04-accordeon-horizontal.html">Accordéon horizontal</a></li>
+      &emsp;
+      <li><a href="05-onglets.html">Onglets</a></li>
+    </td>
+  </center>
 
 
 
