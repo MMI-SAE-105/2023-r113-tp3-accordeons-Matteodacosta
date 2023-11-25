@@ -10,28 +10,17 @@
   <style>
     ul {
       display: flex;
-      gap: 20px;
+      gap: 50px;
       list-style: none;
     }
 
     #accordeon li {
-      width: 30%;
+      width: 50%;
       margin-bottom: 1rem;
       border: 1px solid #11c4f6;
-      border-radius: 5px;
+      border-radius: 2px;
       overflow: hidden;
-    }
 
-    #accordeon li img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    #accordeon li h3 {
-      margin: 0;
-      padding: 0.5rem;
-      background-color: #11c4f6;
     }
 
     #accordeon li p {
@@ -39,7 +28,7 @@
     }
 
     #onglets li.actif {
-      border: 1px solid #000;
+
       background-color: rgb(246, 255, 0);
     }
 
@@ -53,6 +42,8 @@
 
     p {
       color: rgb(1, 1, 1);
+      border: 1px solid black;
+      padding: 5px;
     }
 
     a {
@@ -69,7 +60,7 @@
   <center>
     <h1>Onglets</h1>
   </center>
-  <div id="onglets" x-data="{ouvert : 1,}">
+  <div id="onglets" x-data="{ouvert : 1}">
     <ul role="tablist" id="accordeon">
       <li role="tab" :class="{actif:ouvert === 1}" @click="ouvert = 1">Onglet 1</li>
       <li role="tab" :class="{actif:ouvert === 2}" @click="ouvert = 2">Onglet 2</li>
@@ -94,7 +85,7 @@
     <div role="tabpanel" x-show="ouvert === 3">
       <center>
         <h1>Page 3 </h1>
-      </center>>
+      </center>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat reprehenderit cumque incidunt consectetur et
         ut
         quisquam odit, quod repellendus consequuntur consequatur? Accusantium deleniti nulla minima. Voluptatum
