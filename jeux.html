@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/confetti.min.js"></script>
+    <title>Le Jeu du Pierre-Papier-Ciseaux</title>
+    <style>
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<style>
+    button {
+        flex: none;
+        border-radius: 1rem;
+        height: 50px;
+        margin: 50px;
+        background-color: red;
+
+    }
+
+    #result {
+        transition: opacity 1s;
+    }
+
+    .winner-animation {
+        animation: winner 2s ease-in-out;
+    }
+
+    @keyframes winner {
+
+        0%,
+        100% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        50% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+    }
+
+    .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: rgb(0, 0, 0);
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    #easterEggButton {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+    <center>
+        <h1>Le Jeu de Pierre-Papier-Ciseaux</h1>
+    </center>
+
+
+    </style>
+
+    <div>
+        <button onclick="playGame(1)">Joueur 1</button>
+        <button onclick="playGame(2)">Joueur 2</button>
+        <button onclick="resetAll()">Redémarrer</button>
+        <button onclick="startColorAnimation()">Défiler les couleurs</button>
+        <button id="easterEggButton" onclick="triggerEasterEgg()">Easter Egg</button>
+
+    </div>
+    <div id="result"></div>
+
+    <script>
+        let player1Choice;
+        let player2Choice;
+
+        // Ajoutez les noms des images pour l'égalité et la victoire du Joueur 2
+        const equalityImage = 'Egal.jpg';
+        const player2WinImage = 'fromage.jpg';
+
+        function playGame(player) {
+            // Options possibles
+            const choices = ['pierre', 'papier', 'ciseaux'];
+
+            // Choisir une option pour le joueur 1 ou le joueur 2
+            if (player === 1) {
+                player1Choice = prompt("Joueur 1, choisissez pierre, papier ou ciseaux");
+                if (!choices.includes(player1Choice.toLowerCase())) {
+                    alert("Choix invalide. Veuillez choisir parmi pierre, papier ou ciseaux.");
+                    return;
+                }
+            } else {
+                player2Choice = prompt("Joueur 2, choisissez pierre, papier ou ciseaux");
+                if (!choices.includes(player2Choice.toLowerCase())) {
+                    alert("Choix invalide. Veuillez choisir parmi pierre, papier ou ciseaux.");
+                    return;
+                }
+            }
+
+            // Si les deux joueurs ont fait leur choix, comparer et afficher le résultat
+            if (player1Choice && player2Choice) {
+                // Déterminer le résultat du jeu
+                const result = determineWinner(player1Choice, player2Choice);
+
+                // Afficher le résultat avec animation
+                displayResultWithAnimation(result);
+
+                // Réinitialiser les choix des joueurs
+                player1Choice = null;
+                player2Choice = null;
+            }
+        }
+
+        function resetAll() {
+            // Réinitialiser l'affichage du résultat
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = '';
+            resultElement.classList.remove('winner-animation');
+
+            // Réinitialiser la couleur du fond
+            document.body.style.backgroundColor = 'white';
+
+            // Arrêter l'animation des couleurs
+            stopColorAnimation();
+        }
+
+        function determineWinner(player1Choice, player2Choice) {
+            if (player1Choice.toLowerCase() === player2Choice.toLowerCase()) {
+                return 'egalite';
+            } else if (
+                (player1Choice === 'pierre' && player2Choice === 'ciseaux') ||
+                (player1Choice === 'papier' && player2Choice === 'pierre') ||
+                (player1Choice === 'ciseaux' && player2Choice === 'papier')
+            ) {
+                return 'joueur1';
+            } else {
+                return 'joueur2';
+            }
+        }
+
+        function displayResultWithAnimation(result) {
+            const resultElement = document.getElementById('result');
+
+            // Nom de l'image téléchargée dans le même répertoire que votre fichier HTML
+            let imageName;
+
+            // Choisir l'image en fonction du résultat
+            if (result === 'joueur1') {
+                imageName = 'fromage.jpg';
+            } else if (result === 'joueur2') {
+                imageName = player2WinImage;
+            } else {
+                imageName = equalityImage;
+            }
+
+            // URL de l'image en utilisant le nom de l'image
+            let imageSrc = imageName;
+
+            // Texte à afficher sur l'image
+            let winnerText = '';
+            if (result === 'joueur1') {
+                winnerText = 'Joueur 1 a gagné!';
+            } else if (result === 'joueur2') {
+                winnerText = 'Joueur 2 a gagné!';
+            } else {
+                winnerText = 'Égalité!';
+            }
+
+            // Afficher l'image avec la classe d'animation et le texte superposé
+            resultElement.innerHTML = `
+                <div class="overlay">${winnerText}</div>
+                <center><img src="${imageSrc}" alt="Résultat" class="winner-animation"></center>
+            `;
+
+            // Ajouter la classe d'animation à l'image
+            resultElement.classList.add('winner-animation');
+        }
+        let colorInterval;
+
+        function startColorAnimation() {
+
+            stopColorAnimation();
+
+
+            colorInterval = setInterval(changeColor, 100);
+        }
+
+        function stopColorAnimation() {
+
+            clearInterval(colorInterval);
+        }
+
+        function changeColor() {
+
+            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+
+            document.body.style.backgroundColor = randomColor;
+        }
+        
+        // Fonction pour déclencher l'easter egg
+        function triggerEasterEgg() {
+            confetti.start();
+        }
+
+        // Configurations de Confetti.js
+        const confettiSettings = {
+            target: 'confetti-container',
+            max: 150,
+            size: 2,
+            animate: true,
+            props: ['circle', 'square'],
+            colors: [[255, 165, 0], [255, 0, 0], [0, 128, 0]]
+        };
+
+        // Initialisation de Confetti.js
+        const confetti = new ConfettiGenerator(confettiSettings);
+
+        // Affiche le bouton easter egg après un certain temps (par exemple, 10 secondes)
+        setTimeout(() => {
+            document.getElementById('easterEggButton').style.display = 'block';
+        }, 10000);
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>
